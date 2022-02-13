@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "073bfb43-6912-40a7-a58a-68a0ee9727ae",
+		"name": "Person_IIN+Restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "CreatePerson",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json()\r",
+									"if(jsonData.iin != null) {\r",
+									"\tpm.collectionVariables.set(\"iin\", jsonData.iin)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"iin\":\"760724300757\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/people",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAge",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"iin\":\"760724300757\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/people/123123",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"people",
+								"123123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurant",
+			"item": [
+				{
+					"name": "CreateRestaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json()\r",
+									"if(jsonData.id != null) {\r",
+									"\tpm.collectionVariables.set(\"restaurant_id\", jsonData.id)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestaurant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRestaurants",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestuarant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRestaurant",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestuarant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRestaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestuarant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRestaurant",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\":\"TestAddress2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pizza",
+			"item": [
+				{
+					"name": "CreatePizza",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json()\r",
+									"if(jsonData.id != null) {\r",
+									"\tpm.collectionVariables.set(\"pizza_id\", jsonData.id)\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Margherita\",\r\n    \"cheese_type\":\"Parmesan\",\r\n    \"dough_thickness\":\"thin\",\r\n    \"secret_ingredient\":\"grapefruit seed extract\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}/pizzas",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}",
+								"pizzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPizzas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestuarant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}/pizzas",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}",
+								"pizzas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPizza",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestuarant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}/pizzas/{{pizza_id}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}",
+								"pizzas",
+								"{{pizza_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePizza",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestRestuarant\",\r\n    \"address\":\"TestAddress\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}/pizzas/{{pizza_id}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}",
+								"pizzas",
+								"{{pizza_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePizza",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"TestAddress2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/v1/restaurants/{{restaurant_id}}/pizzas/{{pizza_id}}",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"v1",
+								"restaurants",
+								"{{restaurant_id}}",
+								"pizzas",
+								"{{pizza_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_host",
+			"value": "http://localhost:9080"
+		},
+		{
+			"key": "restaurant_id",
+			"value": ""
+		},
+		{
+			"key": "pizza_id",
+			"value": ""
+		},
+		{
+			"key": "iin",
+			"value": ""
+		}
+	]
+}
